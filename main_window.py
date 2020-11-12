@@ -2,8 +2,13 @@
 Project: python-books
 File: main_window.py
 """
-from PySide2.QtCore import Qt
-from PySide2.QtWidgets import QApplication, QMainWindow, QLabel
+from PySide2.QtSql import QSqlDatabase, QSqlTableModel
+from PySide2.QtWidgets import QApplication, QMainWindow, QTableView
+
+# temp db connection
+db = QSqlDatabase("QSQLITE")
+db.setDatabaseName("books.db")
+db.open()
 
 class MainWindow(QMainWindow):
     """
@@ -11,10 +16,14 @@ class MainWindow(QMainWindow):
     """
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("python-books")
-        label = QLabel("Hello Qt5!")
-        label.setAlignment(Qt.AlignCenter)
-        self.setCentralWidget(label)
+
+        self.table = QTableView()
+        self.model = QSqlTableModel(db=db)
+        self.table.setModel(self.model)
+        self.model.setTable("hello")
+        self.model.select()
+        self.setCentralWidget(self.table)
+
 
 app = QApplication([])
 window = MainWindow()
