@@ -20,3 +20,27 @@ A simple inventory program for tracking books in a home library
 13. Auto-download data (specifically cover art)
 14. Graphical bookshelf interface  
 — Version 2 Done —
+
+## Schema Planning
+ISBN
+ - *What about books that pre-date ISBN or are self-published?*
+ - *ISBN10 versus ISBN13*
+ - *Physical and PDF in collection*
+Title
+Author
+ - *Multiple authors*
+ - *No author*
+Quantity (duplicates in collection)
+Genre
+Rating
+ - *Single user or per household user?*
+Read-through state (Percent complete)
+ - *Single user or per household user?*
+Notes
+Cover art
+Collection or series
+Format (Hardcover, paperback, etc)
+Pages
+ - *Physical page count*
+ - *Page count of the actual content, excluding appendicies & legalise.*
+Year published
